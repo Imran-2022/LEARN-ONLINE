@@ -1,0 +1,38 @@
+- what to do ? 
+> 
+> 
+> 
+> 
+> 
+> 
+- all commands
+> npx create-react-app edu_react
+> cd edu_react
+> npm start
+> CI=false
+> 
+- steps
+> 
+> 
+> 
+> 
+> 
+> 
+- resources
+> How to update meta tags in React.js?
+https://stackoverflow.com/questions/37734150/how-to-update-meta-tags-in-react-js
+> 
+> 
+> 
+> 
+> 
+- shortcut
+> imr(import React from 'react';)
+> 
+> 
+> 
+> 
+- some awesome code
+> 
+in _redirects file (public folder)
+/* /index.html 200
