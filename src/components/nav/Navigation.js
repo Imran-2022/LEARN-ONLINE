@@ -23,8 +23,8 @@ const Navigation = () => {
                 <div class="nav-links" id="nav-links">
                     <h5 className="menuright" onClick={hide_menu}><FaTimes /></h5>
                     <ul onClick={hide_menu}>
-                        <li><Link to="/home">HOME</Link></li>
-                        <li><Link to="/services">SERVICES</Link></li>
+                        <li><Link to="/">HOME</Link></li>
+                        <li><Link to="/services">COURSES</Link></li>
                         <li><Link to="/blogs">BLOGS</Link></li>
                         <li><Link to="/about">ABOUT</Link></li>
                         <li><Link to="/contact">CONTACT</Link></li>
