@@ -80,7 +80,7 @@ const SignUp = () => {
                         <input ref={comfirmPassword} type="password" className="form-control mb-2" placeholder="Enter password" />
                     </div>
                     <button  className="btn btn-primary btn-block">Sign Up</button>
-                    <p className="forgot-password text-right">
+                    <p className="forgot-password text-right pt-2">
                         Already registered <Link to="/sign-in">sign in?</Link>
                     </p>
                 </form>

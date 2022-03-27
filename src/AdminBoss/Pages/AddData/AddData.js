@@ -3,15 +3,17 @@ import "./AddData.css"
 import { useForm } from "react-hook-form";
 const AddData = () => {
 
-    const { register, handleSubmit,formState: { errors } } = useForm();
+    const { register,reset, handleSubmit,formState: { errors } } = useForm();
     const onSubmit =( data )=> {
     
         console.log(data);
+        alert("data added ! ")
+        reset();
     }
     return (
         <div className="mt-5 mb-5 ">
             <p>this is just a cool webite  i build ✌</p>
-            <form className="p-5 mb-5 rounded w-75 m-auto admin-form-add d-flex flex-column justify-content-center align-content-center" onSubmit={handleSubmit(onSubmit)}>
+            <form className="p-5 mb-5 rounded w-75 m-auto admin-form-adds admin-form-add d-flex flex-column justify-content-center align-content-center" onSubmit={handleSubmit(onSubmit)}>
                 <input  placeholder="Image url"   {...register("img",{required: true})} autoComplete="off"/>
                 {errors.img && <small className="text-end">This field is required</small>}
 
@@ -30,7 +32,7 @@ const AddData = () => {
                 <input  placeholder="difficulty-label" {...register("difficulty_label",{required: true})} />
                 {errors.difficulty_label && <small className="text-end">This field is required</small>}
                 
-                <input type="submit" value="Upload NEW one" className="fs-4 fw-bold" />
+                <input type="submit" value="Upload NEW one"  className="fs-5 p-3 rounded fw-bold"/>
             </form>
         </div>
     );

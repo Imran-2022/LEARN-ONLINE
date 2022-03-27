@@ -1,7 +1,7 @@
  /* react hook form style  */
  
 
- input,textarea {
+ .admin-form-adds input,textarea {
     display: block;
     box-sizing: border-box;
     width: 100%;
@@ -12,7 +12,7 @@
     font-size: 14px;
   }
   
-  label {
+  .admin-form-adds label {
     line-height: 2;
     text-align: left;
     display: block;
@@ -23,7 +23,7 @@
     font-weight: 200;
   }
   
-  button[type="submit"],
+  .admin-form-adds button[type="submit"],
   input[type="submit"] {
     background: #0d6efd;
     color: white;
@@ -37,7 +37,7 @@
   
 
   
-  button[type="submit"]:active,
+  .admin-form-adds button[type="submit"]:active,
   input[type="button"]:active,
   input[type="submit"]:active {
     transition: 2s all;
@@ -46,15 +46,15 @@
     opacity: 0.8;
   }
   
-  input:disabled {
+  .admin-form-adds input:disabled {
     opacity: 0.4;
   }
   
-  input[type="button"]:hover {
+  .admin-form-adds input[type="button"]:hover {
     transition: 0.3s all;
   }
   
-  button[type="submit"],
+  .admin-form-adds button[type="submit"],
   input[type="button"],
   input[type="submit"] {
     -webkit-appearance: none;
@@ -65,7 +65,7 @@
     margin: 0 auto;
   }
   
-  button[type="button"] {
+  .admin-form-adds button[type="button"] {
     display: block;
     appearance: none;
     background: #333;
@@ -76,11 +76,11 @@
     border-radius: 4px;
   }
   
-  hr {
+  .admin-form-adds hr {
     margin-top: 30px;
   }
   
-  button {
+  .admin-form-adds button {
     display: block;
     appearance: none;
     margin-top: 40px;
