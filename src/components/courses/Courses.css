@@ -15,9 +15,14 @@
 
 
 .course-details{
-  background: rgb(248 244 244);
+  height: 100%;
+  background: #336fba;
   flex-basis: 31%;
   transition: 0.5s;
+  color:#fff;
+}
+.course-details:hover{
+  transform:translateY(-5px)
 }
 
 .course-details:hover{
@@ -27,4 +32,8 @@
   .courses{
       flex-direction: column;
   }   
+}
+
+.details-in{
+  background: linear-gradient(rgb(3 8 27),rgb(3 8 29 / 85%)),url(https://wallpaperaccess.com/full/187161.jpg);
 }
