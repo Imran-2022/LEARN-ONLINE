@@ -1,9 +1,39 @@
 import React from 'react';
-import "./Update_Delete.css"
+import "./AddData.css"
+import { useForm } from "react-hook-form";
+import Footer from "../../../../src/components/footer/Footer"
 const AddData = () => {
+
+    const { register, handleSubmit,formState: { errors } } = useForm();
+    const onSubmit =( data )=> {
+    
+        console.log(data);
+    }
     return (
-        <div>
-            
+        <div className="mt-5 mb-5 ">
+            <p>this is just a cool webite  i build ✌</p>
+            <form className="p-5 mb-5 rounded w-75 m-auto admin-form-add d-flex flex-column justify-content-center align-content-center" onSubmit={handleSubmit(onSubmit)}>
+                <input  placeholder="Image url"   {...register("img",{required: true})} autoComplete="off"/>
+                {errors.img && <small className="text-end">This field is required</small>}
+
+                <input  placeholder="Title" {...register("title",{required: true})} />
+                {errors.title && <small className="text-end">This field is required</small>}
+
+                <input  placeholder="Total Cost" {...register("cost",{required: true})} />
+                {errors.cost && <small className="text-end">This field is required</small>}
+
+                <input   placeholder="Durations" {...register("durations",{required: true})} />
+                {errors.durations && <small className="text-end">This field is required</small>}
+ 
+                <textarea placeholder="definitions"  {...register("definitions", { required: true })} rows="6" />
+                {errors.definitions && <small className="text-end">This field is required</small>}
+
+                <input  placeholder="difficulty-label" {...register("difficulty_label",{required: true})} />
+                {errors.difficulty_label && <small className="text-end">This field is required</small>}
+                
+                <input type="submit" className="fs-4 fw-bold" />
+            </form>
+            <Footer />
         </div>
     );
 };

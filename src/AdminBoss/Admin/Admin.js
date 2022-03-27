@@ -1,6 +1,7 @@
 import React from 'react';
 import "./Admin.css"
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import AddData from '../Pages/AddData/AddData';
 // import 'react-tabs/style/react-tabs.css';
 const Admin = () => {
 
@@ -24,7 +25,7 @@ const Admin = () => {
                         a for apply
                     </TabPanel>
                     <TabPanel>
-                        b for ball
+                        <AddData/>
                     </TabPanel>
                     {/* <TabPanel>
                         c for cat
