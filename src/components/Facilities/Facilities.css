@@ -1,0 +1,15 @@
+.facility{
+  padding-top: 100px;
+}
+     
+.facility-details{
+  background: rgb(248 244 244);
+  flex-basis: 31%;
+  transition: 0.5s;
+}
+
+@media(max-width:700px){
+  .facilities{
+      flex-direction: column;
+  }   
+}

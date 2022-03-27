@@ -1,0 +1,18 @@
+ .testimonial{
+    padding-top: 100px;  
+  }
+.testimonial-details{
+  background: rgb(248 244 244);
+  flex-basis: 44%;
+}
+
+.testimonial-details img{
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+}
+@media(max-width: 700px){
+    .testimonial{
+      flex-direction: column;
+  }   
+}

@@ -1,7 +1,9 @@
 .navigation_var{
     width: 100%;
     background: #232f3e;
-    
+    position:sticky;
+    top: 0;
+    z-index: 33;
   }
   .navigation_var .logo{
     user-select: none;  
@@ -146,3 +148,14 @@
   .nav-ic{
     font-size: 20px;
   }
+
+  /* nav * */
+.nav-3 a{
+    padding: 5px;
+    font-size: 20px;
+    color: #000000;    
+}
+.nav-3 a:hover{
+    color: rgb(230, 16, 16);
+
+}
