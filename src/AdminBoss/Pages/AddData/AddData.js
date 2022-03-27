@@ -1,7 +1,6 @@
 import React from 'react';
 import "./AddData.css"
 import { useForm } from "react-hook-form";
-import Footer from "../../../../src/components/footer/Footer"
 const AddData = () => {
 
     const { register, handleSubmit,formState: { errors } } = useForm();
@@ -31,9 +30,8 @@ const AddData = () => {
                 <input  placeholder="difficulty-label" {...register("difficulty_label",{required: true})} />
                 {errors.difficulty_label && <small className="text-end">This field is required</small>}
                 
-                <input type="submit" className="fs-4 fw-bold" />
+                <input type="submit" value="Upload NEW one" className="fs-4 fw-bold" />
             </form>
-            <Footer />
         </div>
     );
 };
