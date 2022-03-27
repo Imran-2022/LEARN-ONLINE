@@ -14,6 +14,7 @@ import SignUp from './components/auth/SignIn/SignUp';
 import Context from './components/Context/Context';
 import UserDetails from './components/UserDetails/UserDetails';
 import PrivateRoute from './components/auth/Firebase/PrivateRoute';
+import Admin from './AdminBoss/Admin/Admin';
 function App() {
 
   return (
@@ -44,6 +45,9 @@ function App() {
           </Route>
           <Route path="/blogs">
             <Blogs/>
+          </Route>
+          <Route path="/admin">
+            <Admin/>
           </Route>
         </Switch>
         </Context>

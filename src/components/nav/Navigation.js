@@ -48,7 +48,7 @@ const Navigation = () => {
                             {
                                 loggedInUser.email ?  <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li>:<li><Link to="/sign-in">SIGN IN</Link></li> 
                             }
-                            <li><Link to="/Admin">ADMIN</Link></li>
+                            <li><Link to="/admin">ADMIN</Link></li>
                         </ul>
                     </div>
                     <div className="navend">
