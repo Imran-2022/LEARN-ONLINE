@@ -11,10 +11,12 @@ import About from './components/About/About';
 import Blogs from './components/Blogs/Blogs';
 import SignIn from './components/auth/SignIn/SignIn';
 import SignUp from './components/auth/SignIn/SignUp';
+import Context from './components/Context/Context';
 function App() {
 
   return (
     <div>
+      <Context>
       <Navigation/>
         <Switch>
           <Route exact path="/">
@@ -39,6 +41,7 @@ function App() {
             <Blogs/>
           </Route>
         </Switch>
+        </Context>
     </div>
   );
 }

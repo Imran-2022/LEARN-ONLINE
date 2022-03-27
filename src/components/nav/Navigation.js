@@ -1,12 +1,16 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { HiMenuAlt3 } from "react-icons/hi";
+
 import {
     Link
 } from "react-router-dom";
 import "./Navbar.css"
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa";
+import { userContext } from '../Context/Context';
 const Navigation = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
     const show_menu = () => {
         document.getElementById("nav-links").style.left = "0";
@@ -39,7 +43,7 @@ const Navigation = () => {
                             <li><Link to="/about">ABOUT</Link></li>
                             <li><Link to="/contact">CONTACT</Link></li>
                             <li><Link to="/sign-in">SIGN IN</Link></li>
-                            <li ><Link to="/user">USER</Link></li>
+                            <li ><Link to="/user">{loggedInUser.name.toUpperCase()}</Link></li>
                             <li><Link to="/Admin">ADMIN</Link></li>
                         </ul>
                     </div>
