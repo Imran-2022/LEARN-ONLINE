@@ -9,6 +9,8 @@ import Navigation from './components/nav/Navigation';
 import Courses from './components/courses/Courses';
 import About from './components/About/About';
 import Blogs from './components/Blogs/Blogs';
+import SignIn from './components/auth/SignIn/SignIn';
+import SignUp from './components/auth/SignIn/SignUp';
 function App() {
   return (
     <div>
@@ -25,6 +27,12 @@ function App() {
           </Route>
           <Route path="/about">
             <About/>
+          </Route>
+          <Route path="/sign-in">
+          <SignIn/>
+          </Route>
+          <Route path="/sign-up">
+          <SignUp/>
           </Route>
           <Route path="/blogs">
             <Blogs/>

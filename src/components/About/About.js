@@ -9,7 +9,7 @@ const About = () => {
                 <h1>About Us</h1>
             </div>
 
-            <section class="d-flex w-75 m-auto pt-5 mt-5">
+            <section class="d-flex w-75 m-auto pt-5 my-5">
                 <div class="mt-5 d-flex justify-content-between">
                     <div class="about-col">
                         <h1>we are the world largest University</h1>
