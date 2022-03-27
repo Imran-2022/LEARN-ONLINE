@@ -12,6 +12,7 @@ import Blogs from './components/Blogs/Blogs';
 import SignIn from './components/auth/SignIn/SignIn';
 import SignUp from './components/auth/SignIn/SignUp';
 function App() {
+
   return (
     <div>
       <Navigation/>
