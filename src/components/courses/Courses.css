@@ -1,0 +1,30 @@
+  
+.course-header{
+  height: 50vh;
+  width: 100%;
+  background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("../../../public/Images/contact-header-img.avif");
+  background-position: center;
+  background-size: cover;
+  color:#fff;
+  object-fit: cover;
+}
+
+.course{
+    padding-top: 100px;
+}
+
+
+.course-details{
+  background: rgb(248 244 244);
+  flex-basis: 31%;
+  transition: 0.5s;
+}
+
+.course-details:hover{
+  box-shadow: 0  0 20px 0  rgba(0, 0, 0, 0.2);
+}
+@media(max-width:700px){
+  .courses{
+      flex-direction: column;
+  }   
+}
