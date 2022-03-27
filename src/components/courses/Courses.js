@@ -6,10 +6,10 @@ import Facilities from '../Facilities/Facilities';
 const Courses = () => {
     return (
         <>
-            <div class="course-header d-flex justify-content-center align-items-center">
+            <div className="course-header d-flex justify-content-center align-items-center">
                 <h1>Our courses</h1>
             </div>
-            
+
             <AllCourse />
             <Facilities />
             <Footer />

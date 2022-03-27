@@ -11,10 +11,8 @@ import { userContext } from '../Context/Context';
 const Navigation = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    console.log(loggedInUser.name)
     const show_menu = () => {
         document.getElementById("nav-links").style.left = "0";
-        console.log("object");
     }
     const hide_menu = () => {
         document.getElementById("nav-links").style.left = "-200px";
@@ -31,10 +29,10 @@ const Navigation = () => {
                     <a href="https://www.youtube.com/channel/UCF7WyIjmmYdD1l3fp4egycQ/featured" target="_blank" rel="noreferrer"><FaYoutubeSquare /></a>
                 </div>
             </div>
-            <div class="navigation_var">
-                <nav class="nav-bg">
-                    <Link className="logo text-link icons" to="/"> <span class="nav-ic"><HiMenuAlt3 /></span> LEARN | ONLINE</Link>
-                    <div class="nav-links" id="nav-links">
+            <div className="navigation_var">
+                <nav className="nav-bg">
+                    <Link className="logo text-link icons" to="/"> <span className="nav-ic"><HiMenuAlt3 /></span> LEARN | ONLINE</Link>
+                    <div className="nav-links" id="nav-links">
                         <h5 className="menuright" onClick={hide_menu}><FaTimes /></h5>
                         <ul onClick={hide_menu}>
                             <li><Link to="/">HOME</Link></li>
@@ -46,7 +44,7 @@ const Navigation = () => {
                                 loggedInUser.email && <li ><Link className="bg-danger p-2 rounded" to="/user">{loggedInUser.displayName || "USER-PROFILE"}</Link></li>
                             }
                             {
-                                loggedInUser.email ?  <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li>:<li><Link to="/sign-in">SIGN IN</Link></li> 
+                                loggedInUser.email ? <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li> : <li><Link to="/sign-in">SIGN IN</Link></li>
                             }
                             <li><Link to="/admin">ADMIN</Link></li>
                         </ul>

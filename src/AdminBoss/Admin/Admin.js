@@ -4,13 +4,13 @@ import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 // import 'react-tabs/style/react-tabs.css';
 const Admin = () => {
 
-    
- 
+
+
     return (
         <Tabs>
             <div>
-                <div class="Admin-header d-flex flex-column justify-content-center align-items-center">
-                    <h1 class="fs=5 fw-bold text-primary">THIS IS ADMIN PLACE . ✌</h1>
+                <div className="Admin-header d-flex flex-column justify-content-center align-items-center">
+                    <h1 className="fs=5 fw-bold text-primary">THIS IS ADMIN PLACE . ✌</h1>
                     <TabList id="myDIV" className="d-flex w-50 pt-5 justify-content-between">
                         <Tab className="btn btn-outline-danger text-light active">DATA TABLE</Tab>
                         <Tab className="btn btn-outline-danger text-light">UPLOAD NEW</Tab>
