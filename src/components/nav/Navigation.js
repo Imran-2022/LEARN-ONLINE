@@ -11,7 +11,7 @@ import { userContext } from '../Context/Context';
 const Navigation = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-
+    console.log(loggedInUser.name)
     const show_menu = () => {
         document.getElementById("nav-links").style.left = "0";
         console.log("object");
@@ -25,10 +25,10 @@ const Navigation = () => {
             <div className="d-flex bg-warning justify-content-evenly">
                 <p className="p-1 m-0 text-dark fw-bold">it helps the individual to acquire the necessary skills through learning and knowledge so that he can achieve his set goals.!!</p>
                 <div className="nav-3 ">
-                <a href="https://www.facebook.com/profile.php?id=100071106706650" target="_blank" rel="noreferrer"><FaFacebookSquare /></a>
-                <a href="https://www.linkedin.com/in/md-imranul-haque/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
-                <a href="https://github.com/Imran-2022" target="_blank" rel="noreferrer"><FaGithubSquare /></a>
-                <a href="https://www.youtube.com/channel/UCF7WyIjmmYdD1l3fp4egycQ/featured" target="_blank" rel="noreferrer"><FaYoutubeSquare /></a>
+                    <a href="https://www.facebook.com/profile.php?id=100071106706650" target="_blank" rel="noreferrer"><FaFacebookSquare /></a>
+                    <a href="https://www.linkedin.com/in/md-imranul-haque/" target="_blank" rel="noreferrer"><FaLinkedin /></a>
+                    <a href="https://github.com/Imran-2022" target="_blank" rel="noreferrer"><FaGithubSquare /></a>
+                    <a href="https://www.youtube.com/channel/UCF7WyIjmmYdD1l3fp4egycQ/featured" target="_blank" rel="noreferrer"><FaYoutubeSquare /></a>
                 </div>
             </div>
             <div class="navigation_var">
@@ -42,8 +42,12 @@ const Navigation = () => {
                             <li><Link to="/blogs">BLOGS</Link></li>
                             <li><Link to="/about">ABOUT</Link></li>
                             <li><Link to="/contact">CONTACT</Link></li>
-                            <li><Link to="/sign-in">SIGN IN</Link></li>
-                            <li ><Link to="/user">{loggedInUser.name.toUpperCase()}</Link></li>
+                            {
+                                loggedInUser.email && <li ><Link className="bg-danger p-2 rounded" to="/user">{loggedInUser.displayName || "USER-PROFILE"}</Link></li>
+                            }
+                            {
+                                loggedInUser.email ?  <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li>:<li><Link to="/sign-in">SIGN IN</Link></li> 
+                            }
                             <li><Link to="/Admin">ADMIN</Link></li>
                         </ul>
                     </div>

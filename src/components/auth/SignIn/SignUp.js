@@ -4,7 +4,12 @@ import "./Sign.css"
 import Footer from "../../footer/Footer"
 import { getAuth, createUserWithEmailAndPassword,updateProfile } from "firebase/auth";
 import initialAuth from '../Firebase/InitializeFirebase';
+import { useHistory } from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 const SignUp = () => {
+    const history = useHistory()
+    const location = useLocation()
+    let { from } = location.state || { from: { pathname: "/sign-in" } };
    const [userData,setUserData]=useState({});
     initialAuth() 
     const auth = getAuth();
@@ -24,6 +29,8 @@ const SignUp = () => {
                 // console.log(user)
                 setUserData({email:user})
                 // if (user) {console.log(JSON.stringify(user))};
+                alert("signUp successful")
+                 history.replace(from);
             })
             .catch((error) => {
                 const errorMessage = error.message;
@@ -58,7 +65,7 @@ const SignUp = () => {
                     <h3>Sign Up</h3>
                     <div className="form-group">
                         <label>Your Name</label>
-                        <input ref={userName} type="text" className="form-control" placeholder="Enter name" />
+                        <input ref={userName} type="text" className="form-control" placeholder="Enter name" autoFocus={true} />
                     </div>
                     <div className="form-group">
                         <label>Email address</label>
@@ -77,10 +84,6 @@ const SignUp = () => {
                         Already registered <Link to="/sign-in">sign in?</Link>
                     </p>
                 </form>
-                {
-                    userData.name && <p>signup successfull</p>
-                    
-                }
                 <Footer />
 
             </div>

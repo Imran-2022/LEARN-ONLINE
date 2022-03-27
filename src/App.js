@@ -12,6 +12,8 @@ import Blogs from './components/Blogs/Blogs';
 import SignIn from './components/auth/SignIn/SignIn';
 import SignUp from './components/auth/SignIn/SignUp';
 import Context from './components/Context/Context';
+import UserDetails from './components/UserDetails/UserDetails';
+import PrivateRoute from './components/auth/Firebase/PrivateRoute';
 function App() {
 
   return (
@@ -22,15 +24,18 @@ function App() {
           <Route exact path="/">
             <Home />
           </Route>
-          <Route path="/contact">
+          <PrivateRoute path="/contact">
             <Contact />
-          </Route>
+          </PrivateRoute>
           <Route path="/services">
             <Courses />
           </Route>
           <Route path="/about">
             <About/>
           </Route>
+          <PrivateRoute path="/user">
+            <UserDetails/>
+          </PrivateRoute>
           <Route path="/sign-in">
           <SignIn/>
           </Route>

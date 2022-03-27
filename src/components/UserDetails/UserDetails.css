@@ -1,0 +1,22 @@
+.profile{
+    width: 100%;
+    min-height: 80vh;
+}
+.profile-in{
+    width: 95%;
+    margin: auto;
+    margin: 50px;
+}
+.profile-details{
+   
+    margin: auto;
+    width: 70%;
+    padding: 10px;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+    display: flex;
+    align-items: center;
+}
+.profile-details-in{
+    padding: 30px;
+    font-size: 25px;
+}

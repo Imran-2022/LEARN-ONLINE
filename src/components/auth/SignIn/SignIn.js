@@ -1,10 +1,19 @@
-import React, { useRef, useState } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 import "./Sign.css"
 import Footer from "../../footer/Footer"
 import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "firebase/auth";
 import initialAuth from '../Firebase/InitializeFirebase';
+
+import { userContext } from '../../Context/Context';
+import { useHistory ,useLocation } from 'react-router-dom';
 const SignIn = () => {
+
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    const history = useHistory()
+    const location = useLocation()
+
+    let { from } = location.state || { from: { pathname: "/user" } };
     const [userData, setUserData] = useState({});
     initialAuth()
     const auth = getAuth();
@@ -18,22 +27,25 @@ const SignIn = () => {
                 const { email, displayName } = userCredential.user;
 
                 setUserData({ email, displayName });
+                setLoggedInUser({ email, displayName })
                 // ...
+                alert("signIn successful")
+                history.replace(from);
             })
             .catch((error) => {
                 alert(error.message)
             });
 
     }
-    console.log(userData.displayName)
+    // console.log(userData.displayName)
 
     const handleForgetPassword = () => {
         sendPasswordResetEmail(auth, userEmail.current.value)
             .then(() => {
-               alert("Password reset email sent!")
+                alert("Password reset email sent!")
             })
             .catch((error) => {
-               alert(error.message)
+                alert(error.message)
             });
     }
 
@@ -49,14 +61,14 @@ const SignIn = () => {
                     <h3>Sign In</h3>
                     <div className="form-group">
                         <label>Email address</label>
-                        <input ref={userEmail} type="email" className="form-control" placeholder="Enter email" />
+                        <input ref={userEmail} type="email" className="form-control" placeholder="Enter email" autoFocus={true} />
                     </div>
                     <div className="form-group mb-2">
                         <label>Password</label>
                         <input ref={userPassword} type="password" className="form-control" placeholder="Enter password" />
                     </div>
                     <button className="btn btn-primary btn-block">Sign-In</button>
-                    <p onClick={handleForgetPassword} className="forgot-password text-right py-1 text-danger" style={{cursor: 'pointer',textDecoration:"underLine"}}>Forgot password?</p>
+                    <p onClick={handleForgetPassword} className="forgot-password text-right py-1 text-danger" style={{ cursor: 'pointer', textDecoration: "underLine" }}>Forgot password?</p>
                     <p>New there ? sign up first  <Link to="/sign-up">Sign Up</Link> </p>
                 </form>
                 <Footer />
