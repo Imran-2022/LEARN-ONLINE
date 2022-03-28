@@ -15,6 +15,8 @@ import Context from './components/Context/Context';
 import UserDetails from './components/UserDetails/UserDetails';
 import PrivateRoute from './components/auth/Firebase/PrivateRoute';
 import Admin from './AdminBoss/Admin/Admin';
+import Update from './AdminBoss/Pages/UpateData/Update';
+import Nofound from './components/noMatch/Nofound';
 function App() {
 
   return (
@@ -46,8 +48,14 @@ function App() {
           <Route path="/blogs">
             <Blogs/>
           </Route>
+          <Route path="/admin/update/:abc">
+            <Update/>
+          </Route>
           <Route path="/admin">
             <Admin/>
+          </Route>
+          <Route path="*">
+            <Nofound/>
           </Route>
         </Switch>
         </Context>
