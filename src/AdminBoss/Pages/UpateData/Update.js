@@ -29,7 +29,6 @@ const Update = () => {
         history.replace(from);
     }
     const onSubmit = (data) => {
-        setUpdate(data)
         const url = `http://localhost:8080/data/${abc}`;
         fetch(url, {
             method: 'PUT',
@@ -37,7 +36,7 @@ const Update = () => {
                 'Accept': 'application/json',
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify(update),
+            body: JSON.stringify(data),
         })
             .then(response => response.json())
             .then(result => {
@@ -58,7 +57,7 @@ const Update = () => {
             <p>{abc}</p>
             <div className="mt-5 mb-5 ">
                 <form className="p-5 mb-5 rounded w-75 m-auto admin-form-adds admin-form-add d-flex flex-column justify-content-center align-content-center" onSubmit={handleSubmit(onSubmit)}>
-                    <input defaultValue={img}    {...register("img", { required: true })} autoComplete="off" />
+                    <input placeholder="img url"   {...register("img", { required: true })} autoComplete="off" />
                     {errors.img && <small className="text-end">This field is required</small>}
 
                     <input placeholder="Title" {...register("title", { required: true })} />
