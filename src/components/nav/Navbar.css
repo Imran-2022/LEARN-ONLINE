@@ -163,3 +163,14 @@
 .bg-dark ::after{
   width: 0px;
 }
+
+
+/* cart Number desing here  */
+.cartNumber {
+  position: absolute;
+  top: -10px;
+  left: 175px;
+  height: 27px;
+  width: 50px;
+  background: #f8f8f0 !important;
+}
