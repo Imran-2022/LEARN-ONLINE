@@ -17,6 +17,7 @@ import PrivateRoute from './components/auth/Firebase/PrivateRoute';
 import Admin from './AdminBoss/Admin/Admin';
 import Update from './AdminBoss/Pages/UpateData/Update';
 import Nofound from './components/noMatch/Nofound';
+import SingleCourse from './components/courses/SingleCourse/SingleCourse';
 function App() {
 
   return (
@@ -30,7 +31,7 @@ function App() {
           <PrivateRoute path="/contact">
             <Contact />
           </PrivateRoute>
-          <Route path="/services">
+          <Route exact path="/courses">
             <Courses />
           </Route>
           <Route path="/about">
@@ -51,6 +52,9 @@ function App() {
           <Route path="/admin/update/:abc">
             <Update/>
           </Route>
+          <PrivateRoute path="/courses/:single">
+            <SingleCourse/>
+          </PrivateRoute>
           <Route path="/admin">
             <Admin/>
           </Route>

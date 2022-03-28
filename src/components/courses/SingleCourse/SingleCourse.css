@@ -1,0 +1,18 @@
+.single-course-header{
+    height: 50vh;
+    width: 100%;
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url("../../../../public/Images/contact-header-img.avif");
+    background-position: center;
+    background-size: cover;
+    color:#fff;
+    object-fit: cover;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  }
+  
+  
+.about-coll{
+    flex-basis: 48%;
+  }
+.shadoww{
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}

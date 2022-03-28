@@ -36,7 +36,7 @@ const Navigation = () => {
                         <h5 className="menuright" onClick={hide_menu}><FaTimes /></h5>
                         <ul onClick={hide_menu}>
                             <li><Link to="/">HOME</Link></li>
-                            <li><Link to="/services">COURSES</Link></li>
+                            <li><Link to="/courses">COURSES</Link></li>
                             <li><Link to="/blogs">BLOGS</Link></li>
                             <li><Link to="/about">ABOUT</Link></li>
                             <li><Link to="/contact">CONTACT</Link></li>

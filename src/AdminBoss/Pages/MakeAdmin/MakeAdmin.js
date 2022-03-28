@@ -24,7 +24,7 @@ const MakeAdmin = () => {
                 {errors.name && <small className="text-end">This field is required</small>}
 
                 <input  type="email" placeholder="OUR NEW ADMIN EMAIL"   {...register("email",{required: true})} autoComplete="off"/>
-                {errors.img && <small className="text-end">This field is required</small>}
+                {errors.email && <small className="text-end">This field is required</small>}
                 
                 <input type="submit" value="MAKE ADMIN" className="fs-5 p-3 rounded fw-bold" />
             </form>
