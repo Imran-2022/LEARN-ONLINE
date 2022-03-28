@@ -1,10 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Footer from '../../footer/Footer';
 import "./SingleCourse.css"
 import axios from 'axios'
+import { userContext } from '../../Context/Context';
 
 const SingleCourse = ({setCartUpdate,cartUpdate}) => {
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
     const { single } = useParams()
     const [singleCourse, setSingleCourse] = useState({});
@@ -24,7 +26,9 @@ const SingleCourse = ({setCartUpdate,cartUpdate}) => {
     // }
     const { difficulty, cost, definitions, durations, img, title,_id } = singleCourse;
     // console.log(difficulty, cost, definitions, durations, img, title )
-    const newData={difficulty, cost, definitions, durations, img, title}
+    const {email}=loggedInUser;
+    // console.log(email)
+    const newData={difficulty, cost, definitions, durations, img, title,email}
     // console.log("newData",newData)
 
     const handleCart=(id) => {

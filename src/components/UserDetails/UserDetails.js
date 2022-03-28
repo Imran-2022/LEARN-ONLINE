@@ -1,12 +1,14 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import Footer from '../footer/Footer';
 import "./UserDetails.css"
 import { ImCross } from "react-icons/im";
 import ContinueToBuying from "./ContinueToBuying"
+import { userContext } from '../Context/Context';
 const UserDetails = ({ setCartUpdate }) => {
     useEffect(() => {
         window.scrollTo(0, 0)
     }, [])
+    const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
 
     const [cart, setCart] = useState([])
@@ -15,7 +17,10 @@ const UserDetails = ({ setCartUpdate }) => {
         async function fetchData() {
             const res = await fetch("http://localhost:8080/userSelectedCourse");
             const record = await res.json();
-            setCart(record)
+            // console.log(record)
+            const newUser = record.filter(ab => ab.email ===loggedInUser.email);
+            // console.log("newUser",newUser)
+            setCart(newUser)
         }
         fetchData();
 
