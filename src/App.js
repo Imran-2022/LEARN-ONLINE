@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Home from './components/home/Home';
 import {
   Switch,
@@ -20,17 +20,18 @@ import Nofound from './components/noMatch/Nofound';
 import SingleCourse from './components/courses/SingleCourse/SingleCourse';
 function App() {
 
+  const [cartUpdate,setCartUpdate]= useState(0)
   return (
     <div>
       <Context>
-      <Navigation/>
+      <Navigation cartUpdate={cartUpdate} />
         <Switch>
           <Route exact path="/">
             <Home />
           </Route>
-          <PrivateRoute path="/contact">
+          <Route path="/contact">
             <Contact />
-          </PrivateRoute>
+          </Route>
           <Route exact path="/courses">
             <Courses />
           </Route>
@@ -38,7 +39,7 @@ function App() {
             <About/>
           </Route>
           <PrivateRoute path="/user">
-            <UserDetails/>
+            <UserDetails  setCartUpdate={setCartUpdate}/>
           </PrivateRoute>
           <Route path="/sign-in">
           <SignIn/>
@@ -53,11 +54,11 @@ function App() {
             <Update/>
           </Route>
           <PrivateRoute path="/courses/:single">
-            <SingleCourse/>
+            <SingleCourse cartUpdate={cartUpdate} setCartUpdate={setCartUpdate}/>
           </PrivateRoute>
-          <Route path="/admin">
+          <PrivateRoute path="/admin">
             <Admin/>
-          </Route>
+          </PrivateRoute>
           <Route path="*">
             <Nofound/>
           </Route>

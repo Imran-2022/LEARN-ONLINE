@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { FaTimes, FaBars } from 'react-icons/fa';
 import { HiMenuAlt3 } from "react-icons/hi";
 
@@ -8,15 +8,39 @@ import {
 import "./Navbar.css"
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa";
 import { userContext } from '../Context/Context';
-const Navigation = () => {
+const Navigation = ({cartUpdate}) => {
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
+    const [admin,setAdmin]=useState();
     const show_menu = () => {
         document.getElementById("nav-links").style.left = "0";
     }
     const hide_menu = () => {
         document.getElementById("nav-links").style.left = "-200px";
     }
+    useEffect(() => {
+        const url="http://localhost:8080/adminData"
+        fetch(url)
+        .then(response => response.json())
+        .then(data=>{
+            setAdmin(data)
+        })
+    },[])
+
+    // console.log(loggedInUser.email)
+
+    const [isAdmin,setIsAdmin]= useState(false)
+    useEffect(() => {
+        if(admin){
+            for(const A of admin){
+                // console.log(A.email)
+           if(A.email===loggedInUser.email){
+               setIsAdmin(true)
+           }
+        }
+        }
+    },[loggedInUser.email])
+    // console.log(isAdmin)
 
     return (
         <>
@@ -43,12 +67,14 @@ const Navigation = () => {
                             {
                                 loggedInUser.email && <li ><Link className="bg-danger p-2 rounded" to="/user">
                                 {loggedInUser.displayName || "USER-PROFILE"}
-                                </Link><span className="cartNumber p-1 rounded bg-dark d-flex justify-content-center align-items-center">0</span></li>
+                                </Link><span className="cartNumber p-1 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span></li>
                             }
                             {
                                 loggedInUser.email ? <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li> : <li><Link to="/sign-in">SIGN IN</Link></li>
                             }
-                            <li><Link to="/admin">ADMIN</Link></li>
+                            {
+                                isAdmin && <li><Link to="/admin">ADMIN</Link></li>
+                            }
                         </ul>
                     </div>
                     <div className="navend">

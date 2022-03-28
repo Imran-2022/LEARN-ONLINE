@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
 import Footer from '../../footer/Footer';
 import "./SingleCourse.css"
-const SingleCourse = () => {
+import axios from 'axios'
+
+const SingleCourse = ({setCartUpdate,cartUpdate}) => {
 
     const { single } = useParams()
     const [singleCourse, setSingleCourse] = useState({});
@@ -21,9 +22,28 @@ const SingleCourse = () => {
     // if(singleCourse){
     //     console.log(JSON.stringify(singleCourse))
     // }
-    const { difficulty, cost, definitions, durations, img, title } = singleCourse;
+    const { difficulty, cost, definitions, durations, img, title,_id } = singleCourse;
     // console.log(difficulty, cost, definitions, durations, img, title )
-    return (
+    const newData={difficulty, cost, definitions, durations, img, title}
+    // console.log("newData",newData)
+
+    const handleCart=(id) => {
+        // console.log(id)
+        if(singleCourse._id ===id)
+        {
+            axios.post('http://localhost:8080/userSelectedCourse', newData)
+            .then(res => {
+                if (res.data) {
+                    alert("added to cart !!!");
+                }
+            setCartUpdate(cartUpdate+1)
+
+            })
+            
+        }
+    }
+
+return (
         <div>
             <div className="single-course-header d-flex justify-content-center align-items-center">
                 <h1 className="text-uppercase">Details of : <span className="text-primary p-1 px-4 rounded bg-light">{title} </span> <small className="fs-6 ms-2"> course</small></h1>
@@ -42,7 +62,8 @@ const SingleCourse = () => {
                                 <h2 className="fs-4">DIFFICULTY : {difficulty}</h2>
                             </div>
                             <p className="pt-3"> <span className="p-1 fs-6 bg-primary text-light fw-bold">DEFINITIONS :</span> {definitions}</p>
-                            <button className="btn btn-primary w-100 p-3" onClick={()=>alert("added ✌")}> ADD TO CART 🚀</button>
+                            
+                            <button onClick={()=>handleCart(_id)} className="btn btn-primary w-100 p-3" > ADD TO CART 🚀</button>
                         </div>
                     </div>
                 </div>

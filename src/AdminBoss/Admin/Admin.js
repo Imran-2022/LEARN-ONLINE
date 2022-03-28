@@ -14,7 +14,7 @@ const Admin = () => {
         .then(response => response.json())
         .then(data => setAdmin(data));
     },[])
-    console.log("admin",admin);
+    // console.log("admin",admin);
 
     return (
         <>

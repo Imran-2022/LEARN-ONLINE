@@ -12,7 +12,7 @@ const DataTable = () => {
         }
         fetchData();
     }, [])
-    console.log(data)
+    // console.log(data)
 
 
     const handleDelete = (id) => {
@@ -52,7 +52,7 @@ const DataTable = () => {
                 {
                     data.map((data, i) => {
                         const { _id, title ,img} = data
-                        console.log(img)
+                        // console.log(img)
                         return (
                             <tbody key={_id}>
                                 <tr>
