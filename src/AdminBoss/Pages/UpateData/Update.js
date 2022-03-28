@@ -54,7 +54,7 @@ const Update = () => {
     return (
         <div className="UpdatePage">
             <p>this is update page !!</p>
-            <p>{abc}</p>
+            <p> ID : {abc}</p>
             <div className="mt-5 mb-5 ">
                 <form className="p-5 mb-5 rounded w-75 m-auto admin-form-adds admin-form-add d-flex flex-column justify-content-center align-content-center" onSubmit={handleSubmit(onSubmit)}>
                     <input placeholder="img url"   {...register("img", { required: true })} autoComplete="off" />
