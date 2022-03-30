@@ -67,7 +67,7 @@ const Navigation = ({cartUpdate}) => {
                             {
                                 loggedInUser.email && <li ><Link className="bg-danger p-2 rounded" to="/user">
                                 {loggedInUser.displayName || "USER-PROFILE"}
-                                </Link><span className="cartNumber p-1 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span></li>
+                                </Link><span className="cartNumber p-0 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span></li>
                             }
                             {
                                 loggedInUser.email ? <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li> : <li><Link to="/sign-in">SIGN IN</Link></li>

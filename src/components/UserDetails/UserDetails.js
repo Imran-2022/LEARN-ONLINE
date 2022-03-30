@@ -17,7 +17,7 @@ const UserDetails = ({ setCartUpdate }) => {
         async function fetchData() {
             const res = await fetch("http://localhost:8080/userSelectedCourse");
             const record = await res.json();
-            // console.log(record)
+            console.log(record)
             const newUser = record.filter(ab => ab.email ===loggedInUser.email);
             // console.log("newUser",newUser)
             setCart(newUser)
@@ -32,6 +32,7 @@ const UserDetails = ({ setCartUpdate }) => {
 
     const handleDelete = (id) => {
         // const proced= window.confirm("are you sure, you want to delete ?");
+        console.log(id);
 
         if (true) {
             fetch(`http://localhost:8080/userSelectedCourse/${id}`, {
@@ -41,10 +42,10 @@ const UserDetails = ({ setCartUpdate }) => {
                 .then(res => {
                     if (res.deletedCount === 1) {
                         alert(`course of ' ${id} ' deleted successfully`)
-                        const newUser = cart.filter(ab => ab._id != id);
+                        const newUser = cart.filter(ab => ab._id !== id);
                         setCart(newUser)
                     }
-                })
+                })   
         }
     }
 

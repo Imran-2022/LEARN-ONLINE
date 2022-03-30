@@ -38,7 +38,7 @@ const SignUp = () => {
             });
 
         }else{
-            console.log(false)
+           alert("comfirm password' must be carbon copy of your password 😅")
         }
 
     }

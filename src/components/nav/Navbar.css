@@ -169,9 +169,9 @@
 .cartNumber {
   position: absolute;
   top: -10px;
-  left: 175px;
-  height: 27px;
-  width: 50px;
+  left: 5px;
+  min-height: 20px;
+  min-width: 20px;
   background: #f8f8f0 !important;
 }
 

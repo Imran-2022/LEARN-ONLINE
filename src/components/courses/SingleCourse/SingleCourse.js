@@ -5,7 +5,7 @@ import "./SingleCourse.css"
 import axios from 'axios'
 import { userContext } from '../../Context/Context';
 
-const SingleCourse = ({setCartUpdate,cartUpdate}) => {
+const SingleCourses = ({setCartUpdate,cartUpdate}) => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
     const { single } = useParams()
@@ -41,12 +41,38 @@ const SingleCourse = ({setCartUpdate,cartUpdate}) => {
                     alert("added to cart !!!");
                 }
             setCartUpdate(cartUpdate+1)
-
+                document.getElementById("mutedBTN").disabled=true;
+                document.getElementById("mutedBTN").innerHTML="ALREADY ADDED TO CART 🚀"
             })
             
         }
     }
 
+
+
+    const [cart, setCart] = useState([])
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch("http://localhost:8080/userSelectedCourse");
+            const record = await res.json();
+            // console.log(record)
+            const newUser = record.filter(ab => ab.email ===loggedInUser.email);
+            // console.log("newUser",newUser)
+            setCart(newUser)
+        }
+        fetchData();
+
+
+    }, [])
+
+    //  const uniqueD= cart.filter(ab => ab._id ===_id)
+    // console.log("uniqueD",uniqueD)
+
+    const newU = cart.filter(ab => ab.title !== title);
+    // console.log(title)
+    const selectPermissions = cart.length===newU.length
+    console.log(selectPermissions);
 return (
         <div>
             <div className="single-course-header d-flex justify-content-center align-items-center">
@@ -67,7 +93,9 @@ return (
                             </div>
                             <p className="pt-3"> <span className="p-1 fs-6 bg-primary text-light fw-bold">DEFINITIONS :</span> {definitions}</p>
                             
-                            <button onClick={()=>handleCart(_id)} className="btn btn-primary w-100 p-3" > ADD TO CART 🚀</button>
+                            {
+                                selectPermissions ? <button id="mutedBTN" onClick={()=>handleCart(_id)} className="btn btn-primary w-100 p-3" > ADD TO CART 🚀</button> :<button disabled onClick={()=>handleCart(_id)} className="btn btn-primary w-100 p-3" >  ALREADY ADDED TO CART 🚀</button>
+                            }
                         </div>
                     </div>
                 </div>
@@ -80,4 +108,4 @@ return (
     );
 };
 
-export default SingleCourse;
+export default SingleCourses;

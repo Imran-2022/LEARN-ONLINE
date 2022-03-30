@@ -25,7 +25,7 @@ const Admin = () => {
                             {
                                 admin.map(admin => {
                                     return (
-                                        <div>
+                                        <div key={admin._id}>
                                             <p>ADMIN :- {admin.email}</p>
                                         </div>
                                     )

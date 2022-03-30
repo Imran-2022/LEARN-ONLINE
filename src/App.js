@@ -17,7 +17,7 @@ import PrivateRoute from './components/auth/Firebase/PrivateRoute';
 import Admin from './AdminBoss/Admin/Admin';
 import Update from './AdminBoss/Pages/UpateData/Update';
 import Nofound from './components/noMatch/Nofound';
-import SingleCourse from './components/courses/SingleCourse/SingleCourse';
+import SingleCourses from './components/courses/SingleCourse/SingleCourse';
 function App() {
 
   const [cartUpdate,setCartUpdate]= useState(0)
@@ -54,7 +54,7 @@ function App() {
             <Update/>
           </Route>
           <PrivateRoute path="/courses/:single">
-            <SingleCourse cartUpdate={cartUpdate} setCartUpdate={setCartUpdate}/>
+            <SingleCourses cartUpdate={cartUpdate} setCartUpdate={setCartUpdate}/>
           </PrivateRoute>
           <PrivateRoute path="/admin">
             <Admin/>
