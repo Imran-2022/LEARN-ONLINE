@@ -58,7 +58,7 @@ const UserDetails = ({ setCartUpdate }) => {
     const handleCheckOut = () => {
 
 
-        fetch(`http://localhost:8080/userSelectedCourse`, {
+        fetch(`http://localhost:8080/userSelectedCourse/user/${loggedInUser.email}`, {
             method: 'DELETE',
         })
             .then(res => res.json())// or res.text()) 
