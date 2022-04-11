@@ -5,7 +5,7 @@ import "./SingleCourse.css"
 import axios from 'axios'
 import { userContext } from '../../Context/Context';
 
-const SingleCourses = ({setCartUpdate,cartUpdate}) => {
+const SingleCourses = ({ setCartUpdate, cartUpdate }) => {
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
 
     const { single } = useParams()
@@ -14,7 +14,7 @@ const SingleCourses = ({setCartUpdate,cartUpdate}) => {
     useEffect(() => {
 
         async function fetchData() {
-            const res = await fetch(`http://localhost:8080/data/${single}`);
+            const res = await fetch(`https://learn-onlinee.herokuapp.com/data/${single}`);
             const record = await res.json();
             setSingleCourse(record)
         }
@@ -24,27 +24,26 @@ const SingleCourses = ({setCartUpdate,cartUpdate}) => {
     // if(singleCourse){
     //     console.log(JSON.stringify(singleCourse))
     // }
-    const { difficulty, cost, definitions, durations, img, title,_id } = singleCourse;
+    const { difficulty, cost, definitions, durations, img, title, _id } = singleCourse;
     // console.log(difficulty, cost, definitions, durations, img, title )
-    const {email}=loggedInUser;
+    const { email } = loggedInUser;
     // console.log(email)
-    const newData={difficulty, cost, definitions, durations, img, title,email}
+    const newData = { difficulty, cost, definitions, durations, img, title, email }
     // console.log("newData",newData)
 
-    const handleCart=(id) => {
+    const handleCart = (id) => {
         // console.log(id)
-        if(singleCourse._id ===id)
-        {
-            axios.post('http://localhost:8080/userSelectedCourse', newData)
-            .then(res => {
-                if (res.data) {
-                    alert("added to cart !!!");
-                }
-            setCartUpdate(cartUpdate+1)
-                document.getElementById("mutedBTN").disabled=true;
-                document.getElementById("mutedBTN").innerHTML="ALREADY ADDED TO CART 🚀"
-            })
-            
+        if (singleCourse._id === id) {
+            axios.post('https://learn-onlinee.herokuapp.com/userSelectedCourse', newData)
+                .then(res => {
+                    if (res.data) {
+                        alert("added to cart !!!");
+                    }
+                    setCartUpdate(cartUpdate + 1)
+                    document.getElementById("mutedBTN").disabled = true;
+                    document.getElementById("mutedBTN").innerHTML = "ALREADY ADDED TO CART 🚀"
+                })
+
         }
     }
 
@@ -54,10 +53,10 @@ const SingleCourses = ({setCartUpdate,cartUpdate}) => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch("http://localhost:8080/userSelectedCourse");
+            const res = await fetch("https://learn-onlinee.herokuapp.com/userSelectedCourse");
             const record = await res.json();
             // console.log(record)
-            const newUser = record.filter(ab => ab.email ===loggedInUser.email);
+            const newUser = record.filter(ab => ab.email === loggedInUser.email);
             // console.log("newUser",newUser)
             setCart(newUser)
         }
@@ -71,9 +70,9 @@ const SingleCourses = ({setCartUpdate,cartUpdate}) => {
 
     const newU = cart.filter(ab => ab.title !== title);
     // console.log(title)
-    const selectPermissions = cart.length===newU.length
+    const selectPermissions = cart.length === newU.length
     console.log(selectPermissions);
-return (
+    return (
         <div>
             <div className="single-course-header d-flex justify-content-center align-items-center">
                 <h1 className="text-uppercase">Details of : <span className="text-primary p-1 px-4 rounded bg-light">{title} </span> <small className="fs-6 ms-2"> course</small></h1>
@@ -92,9 +91,9 @@ return (
                                 <h2 className="fs-4">DIFFICULTY : {difficulty}</h2>
                             </div>
                             <p className="pt-3"> <span className="p-1 fs-6 bg-primary text-light fw-bold">DEFINITIONS :</span> {definitions}</p>
-                            
+
                             {
-                                selectPermissions ? <button id="mutedBTN" onClick={()=>handleCart(_id)} className="btn btn-primary w-100 p-3" > ADD TO CART 🚀</button> :<button disabled onClick={()=>handleCart(_id)} className="btn btn-primary w-100 p-3" >  ALREADY ADDED TO CART 🚀</button>
+                                selectPermissions ? <button id="mutedBTN" onClick={() => handleCart(_id)} className="btn btn-primary w-100 p-3" > ADD TO CART 🚀</button> : <button disabled onClick={() => handleCart(_id)} className="btn btn-primary w-100 p-3" >  ALREADY ADDED TO CART 🚀</button>
                             }
                         </div>
                     </div>

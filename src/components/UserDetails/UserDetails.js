@@ -15,10 +15,10 @@ const UserDetails = ({ setCartUpdate }) => {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch("http://localhost:8080/userSelectedCourse");
+            const res = await fetch("https://learn-onlinee.herokuapp.com/userSelectedCourse");
             const record = await res.json();
             console.log(record)
-            const newUser = record.filter(ab => ab.email ===loggedInUser.email);
+            const newUser = record.filter(ab => ab.email === loggedInUser.email);
             // console.log("newUser",newUser)
             setCart(newUser)
         }
@@ -35,7 +35,7 @@ const UserDetails = ({ setCartUpdate }) => {
         console.log(id);
 
         if (true) {
-            fetch(`http://localhost:8080/userSelectedCourse/${id}`, {
+            fetch(`https://learn-onlinee.herokuapp.com/userSelectedCourse/${id}`, {
                 method: 'DELETE',
             })
                 .then(res => res.json())// or res.text()) 
@@ -45,7 +45,7 @@ const UserDetails = ({ setCartUpdate }) => {
                         const newUser = cart.filter(ab => ab._id !== id);
                         setCart(newUser)
                     }
-                })   
+                })
         }
     }
 
@@ -58,7 +58,7 @@ const UserDetails = ({ setCartUpdate }) => {
     const handleCheckOut = () => {
 
 
-        fetch(`http://localhost:8080/userSelectedCourse/user/${loggedInUser.email}`, {
+        fetch(`https://learn-onlinee.herokuapp.com/userSelectedCourse/user/${loggedInUser.email}`, {
             method: 'DELETE',
         })
             .then(res => res.json())// or res.text()) 

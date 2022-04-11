@@ -8,10 +8,10 @@ import {
 import "./Navbar.css"
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa";
 import { userContext } from '../Context/Context';
-const Navigation = ({cartUpdate}) => {
+const Navigation = ({ cartUpdate }) => {
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    const [admin,setAdmin]=useState();
+    const [admin, setAdmin] = useState();
     const show_menu = () => {
         document.getElementById("nav-links").style.left = "0";
     }
@@ -19,27 +19,27 @@ const Navigation = ({cartUpdate}) => {
         document.getElementById("nav-links").style.left = "-200px";
     }
     useEffect(() => {
-        const url="http://localhost:8080/adminData"
+        const url = "https://learn-onlinee.herokuapp.com/adminData"
         fetch(url)
-        .then(response => response.json())
-        .then(data=>{
-            setAdmin(data)
-        })
-    },[])
+            .then(response => response.json())
+            .then(data => {
+                setAdmin(data)
+            })
+    }, [])
 
     // console.log(loggedInUser.email)
 
-    const [isAdmin,setIsAdmin]= useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
     useEffect(() => {
-        if(admin){
-            for(const A of admin){
+        if (admin) {
+            for (const A of admin) {
                 // console.log(A.email)
-           if(A.email===loggedInUser.email){
-               setIsAdmin(true)
-           }
+                if (A.email === loggedInUser.email) {
+                    setIsAdmin(true)
+                }
+            }
         }
-        }
-    },[loggedInUser.email])
+    }, [loggedInUser.email])
     // console.log(isAdmin)
 
     return (
@@ -66,7 +66,7 @@ const Navigation = ({cartUpdate}) => {
                             <li><Link to="/contact">CONTACT</Link></li>
                             {
                                 loggedInUser.email && <li ><Link className="bg-danger p-2 rounded" to="/user">
-                                {loggedInUser.displayName || "USER-PROFILE"}
+                                    {loggedInUser.displayName || "USER-PROFILE"}
                                 </Link><span className="cartNumber p-0 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span></li>
                             }
                             {

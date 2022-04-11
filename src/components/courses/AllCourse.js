@@ -5,7 +5,7 @@ const AllCourse = () => {
     const [courses, setCourses] = useState([])
 
     useEffect(() => {
-        const url = "http://localhost:8080/data"
+        const url = "https://learn-onlinee.herokuapp.com/data"
         fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -20,14 +20,14 @@ const AllCourse = () => {
                 <div className="mt-5 d-flex flex-wrap justify-content-center courses">
                     {
                         courses && courses.map((dt, inx) => {
-                            const {img,title,cost,durations,definitions,difficulty,_id}=dt;
+                            const { img, title, cost, durations, definitions, difficulty, _id } = dt;
                             return (
                                 <div key={inx} className="course-details rounded m-2">
-                                    <img width="100%" height="200px" src={ img ||"https://analyticsinsight.b-cdn.net/wp-content/uploads/2020/11/Artificial-Intelligence-5.jpg"} alt="" />
+                                    <img width="100%" height="200px" src={img || "https://analyticsinsight.b-cdn.net/wp-content/uploads/2020/11/Artificial-Intelligence-5.jpg"} alt="" />
                                     <div className="p-3 details-in">
-                                        <h3 className="text-start d-flex align-items-center fw-bold" style={{height:"70px"}}>{title}</h3>
-                                        <p className='text-start'>{definitions.slice(0,200)}. . . . . . .</p>
-                                        <Link  to={`/courses/${_id}`}><button className="btn btn-primary w-100 ">LEARN MORE</button></Link>
+                                        <h3 className="text-start d-flex align-items-center fw-bold" style={{ height: "70px" }}>{title}</h3>
+                                        <p className='text-start'>{definitions.slice(0, 200)}. . . . . . .</p>
+                                        <Link to={`/courses/${_id}`}><button className="btn btn-primary w-100 ">LEARN MORE</button></Link>
                                     </div>
                                 </div>
                             )

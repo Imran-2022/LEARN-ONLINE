@@ -8,12 +8,12 @@ import DataTable from '../Pages/DataTable/DataTable';
 // import 'react-tabs/style/react-tabs.css';
 const Admin = () => {
 
-    const [admin,setAdmin]=useState([])
+    const [admin, setAdmin] = useState([])
     useEffect(() => {
-        fetch('http://localhost:8080/adminData')
-        .then(response => response.json())
-        .then(data => setAdmin(data));
-    },[])
+        fetch('https://learn-onlinee.herokuapp.com/adminData')
+            .then(response => response.json())
+            .then(data => setAdmin(data));
+    }, [])
     // console.log("admin",admin);
 
     return (
@@ -21,7 +21,7 @@ const Admin = () => {
             <Tabs>
                 <div>
                     <div className="Admin-header d-flex flex-column justify-content-center align-items-center">
-                    <small className=" text-primary">
+                        <small className=" text-primary">
                             {
                                 admin.map(admin => {
                                     return (

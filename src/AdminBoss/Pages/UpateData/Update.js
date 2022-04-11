@@ -12,7 +12,7 @@ const Update = () => {
     const [update, setUpdate] = useState({});
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch(`http://localhost:8080/data/${abc}`);
+            const res = await fetch(`https://learn-onlinee.herokuapp.com/data/${abc}`);
             const record = await res.json();
             setUpdate(record)
         }
@@ -29,7 +29,7 @@ const Update = () => {
         history.replace(from);
     }
     const onSubmit = (data) => {
-        const url = `http://localhost:8080/data/${abc}`;
+        const url = `https://learn-onlinee.herokuapp.com/data/${abc}`;
         fetch(url, {
             method: 'PUT',
             headers: {
