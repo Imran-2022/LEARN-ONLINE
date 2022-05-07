@@ -2,7 +2,7 @@
 .header{
     min-height: 90vh;
     width: 100%;
-    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://leverageedu.com/blog/wp-content/uploads/2020/04/Types-of-Education.jpg);
+    background-image: linear-gradient(rgba(4,9,30,0.7),rgba(4,9,30,0.7)),url(https://www.cornerstone.edu/wp-content/uploads/2021/12/1470-WEB-online-learning.jpeg);
     background-position: 100% 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -21,7 +21,12 @@
   height: 90vh;
 }
 /* header end */
-
+.hh{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  padding: 10px;
+  background: rgb(40 13 13 / 13%);
+  border-radius: 5px;
+}
 
 
 

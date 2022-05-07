@@ -51,10 +51,7 @@ const UserDetails = ({ setCartUpdate }) => {
 
 
     setCartUpdate(cart.length)
-
-
-
-
+    
     const handleCheckOut = () => {
 
 
