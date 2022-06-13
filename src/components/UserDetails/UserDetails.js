@@ -18,7 +18,7 @@ const UserDetails = ({ setCartUpdate }) => {
             const res = await fetch("https://learn-onlinee.herokuapp.com/userSelectedCourse");
             const record = await res.json();
             console.log(record)
-            const newUser = record.filter(ab => ab.email === loggedInUser.email);
+            const newUser = record.filter(ab => ab.email === loggedInUser.email|| JSON.parse(localStorage.getItem('authUser'))?.email);
             // console.log("newUser",newUser)
             setCart(newUser)
         }
@@ -51,11 +51,12 @@ const UserDetails = ({ setCartUpdate }) => {
 
 
     setCartUpdate(cart.length)
+    const handleEmail = JSON.parse(localStorage.getItem('authUser'))?.email
     
+    console.log(handleEmail,loggedInUser.email)
     const handleCheckOut = () => {
-
-
-        fetch(`https://learn-onlinee.herokuapp.com/userSelectedCourse/user/${loggedInUser.email||JSON.parse(localStorage.getItem('authUser'))?.email}`, {
+        console.log(handleEmail)
+        fetch(`https://learn-onlinee.herokuapp.com/userSelectedCourse/user/${handleEmail}`, {
             method: 'DELETE',
         })
             .then(res => res.json())// or res.text()) 
