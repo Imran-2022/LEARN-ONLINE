@@ -6,7 +6,7 @@ import { getAuth, signInWithEmailAndPassword, sendPasswordResetEmail } from "fir
 import initialAuth from '../Firebase/InitializeFirebase';
 
 import { userContext } from '../../Context/Context';
-import { useHistory ,useLocation } from 'react-router-dom';
+import { useHistory, useLocation } from 'react-router-dom';
 const SignIn = () => {
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
@@ -24,13 +24,20 @@ const SignIn = () => {
         signInWithEmailAndPassword(auth, userEmail.current.value, userPassword.current.value)
             .then((userCredential) => {
                 // Signed in 
-                const { email, displayName } = userCredential.user;
-                localStorage.setItem('authUser', JSON.stringify({email, displayName}))
-                setUserData({ email, displayName });
-                setLoggedInUser({ email, displayName })
-                // ...
-                alert("signIn successful")
-                history.replace(from);
+                const { email, displayName, emailVerified } = userCredential.user;
+
+                if (emailVerified) {
+                    localStorage.setItem('authUser', JSON.stringify({ email, displayName }))
+                    setUserData({ email, displayName, emailVerified });
+
+                    setLoggedInUser({ email, displayName })
+                    // ...
+                    alert("signIn successful")
+                    history.replace(from);
+                } else {
+                    alert("before signin you must need to verify your email ")
+                }
+
             })
             .catch((error) => {
                 alert(error.message)
