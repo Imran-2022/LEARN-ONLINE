@@ -55,7 +55,7 @@ const UserDetails = ({ setCartUpdate }) => {
     const handleCheckOut = () => {
 
 
-        fetch(`https://learn-onlinee.herokuapp.com/userSelectedCourse/user/${loggedInUser.email}`, {
+        fetch(`https://learn-onlinee.herokuapp.com/userSelectedCourse/user/${loggedInUser.email||JSON.parse(localStorage.getItem('authUser'))?.email}`, {
             method: 'DELETE',
         })
             .then(res => res.json())// or res.text()) 

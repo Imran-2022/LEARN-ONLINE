@@ -30,33 +30,11 @@
 ```
 ONLY ADMIN BE ABLE TO :
 ```
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
+- user can see all courses+ details , can purchase any course.
+- have complete authentication system with - reset password + verify password.
 
 ```
 ONLY ADMIN BE ABLE TO :
 ```
-- lorem
-- lorem
-- lorem
-- lorem
-- lorem
+- admin have complete crud operations.
 

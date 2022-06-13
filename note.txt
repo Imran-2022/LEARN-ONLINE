@@ -44,6 +44,8 @@ https://stackoverflow.com/questions/37734150/how-to-update-meta-tags-in-react-js
 > What is the Difference Between Reviews and Testimonials
 https://pediaa.com/what-is-the-difference-between-reviews-and-testimonials/#:~:text=The%20main%20difference%20between%20reviews,they%20are%20not%20the%20same.
 
+> save logged info on localstorage -
+https://stackoverflow.com/questions/48855851/how-do-i-keep-a-user-logged-into-firebase-after-refresh-in-react-js
 
 
 

@@ -6,7 +6,7 @@ const Testimonials = () => {
             <section className="testimonial  w-75 m-auto text-center">
                 <h1 className="fs-4 fw-bold">what our student says</h1>
                 <p className="text-dark fs-6 line-height-lg p-4">Lorem ipsum dolor, sit amet consectetur adipisicing elit. Quod, neque. Molestias, odio eveniet!</p>
-                <div className="mt-5 d-flex justify-content-between testimonials ">
+                <div className="mt-5 d-flex justify-content-between testimonials flex-wrap ">
                     <div className="testimonial-details rounded mb-5 p-3 d-flex">
                         <img src="Images/contact-header-img.avif" alt="" />
                         <div>

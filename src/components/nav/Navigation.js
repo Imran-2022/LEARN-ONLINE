@@ -44,7 +44,7 @@ const Navigation = ({ cartUpdate }) => {
 
     return (
         <>
-            <div className="d-flex bg-warning justify-content-evenly">
+            <div className="d-flex bg-warning justify-content-evenly nav-all-icons">
                 <p className="p-1 m-0 text-dark fw-bold">it helps the individual to acquire the necessary skills through learning and knowledge so that he can achieve his set goals.!!</p>
                 <div className="nav-3 ">
                     <a href="https://www.facebook.com/profile.php?id=100071106706650" target="_blank" rel="noreferrer"><FaFacebookSquare /></a>
@@ -65,12 +65,17 @@ const Navigation = ({ cartUpdate }) => {
                             <li><Link to="/about">ABOUT</Link></li>
                             <li><Link to="/contact">CONTACT</Link></li>
                             {
-                                loggedInUser.email && <li ><Link className="bg-danger p-2 rounded" to="/user">
-                                    {loggedInUser.displayName || "USER-PROFILE"}
-                                </Link><span className="cartNumber p-0 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span></li>
+                                (JSON.parse(localStorage.getItem('authUser'))?.email || loggedInUser.email) && <li ><Link className="bg-danger p-2 rounded" to="/user">
+                                    {loggedInUser.displayName||JSON.parse(localStorage.getItem('authUser'))?.displayName || "USER-PROFILE"}
+                                </Link>
+                                {/* <span className="cartNumber p-0 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span> */}
+                                </li>
                             }
                             {
-                                loggedInUser.email ? <li><Link to="/sign-in" onClick={() => setLoggedInUser({})}>SIGN-OUT</Link></li> : <li><Link to="/sign-in">SIGN IN</Link></li>
+                                JSON.parse(localStorage.getItem('authUser'))?.email || loggedInUser.email  ? <li><Link to="/sign-in" onClick={() =>{
+                                    setLoggedInUser({})
+                                    localStorage.removeItem('authUser')
+                                } }>SIGN-OUT</Link></li> : <li><Link to="/sign-in">SIGN IN</Link></li>
                             }
                             {
                                 isAdmin && <li><Link to="/admin">ADMIN</Link></li>

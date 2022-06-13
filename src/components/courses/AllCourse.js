@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Spinner } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 
 const AllCourse = () => {
@@ -19,7 +20,7 @@ const AllCourse = () => {
                 <p className="text-dark fs-6 line-height-lg p-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Reiciendis in provident, accusamus blanditiis magni inventore!</p>
                 <div className="mt-5 d-flex flex-wrap justify-content-center courses">
                     {
-                        courses && courses.map((dt, inx) => {
+                        courses.length ? courses.map((dt, inx) => {
                             const { img, title, cost, durations, definitions, difficulty, _id } = dt;
                             return (
                                 <div key={inx} className="course-details rounded m-2">
@@ -31,7 +32,18 @@ const AllCourse = () => {
                                     </div>
                                 </div>
                             )
-                        })
+                        }) : <div style={{ minHeight: "300px" }} className="d-flex justify-content-center align-items-center">
+                            <Button variant="primary" disabled>
+                                <Spinner
+                                    as="span"
+                                    animation="grow"
+                                    size="sm"
+                                    role="status"
+                                    aria-hidden="true"
+                                />
+                                Loading courses...
+                            </Button>
+                        </div>
                     }
                 </div>
             </section>

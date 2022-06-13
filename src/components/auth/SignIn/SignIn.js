@@ -25,7 +25,7 @@ const SignIn = () => {
             .then((userCredential) => {
                 // Signed in 
                 const { email, displayName } = userCredential.user;
-
+                localStorage.setItem('authUser', JSON.stringify({email, displayName}))
                 setUserData({ email, displayName });
                 setLoggedInUser({ email, displayName })
                 // ...
