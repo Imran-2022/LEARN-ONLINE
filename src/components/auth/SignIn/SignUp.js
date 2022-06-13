@@ -31,9 +31,8 @@ const SignUp = () => {
                     // if (user) {console.log(JSON.stringify(user))};
                     sendEmailVari()
 
-                    setTimeout(() =>{
-                        history.replace(from);
-                    },3000)
+                    setTimeout(() =>
+                        history.replace(from), 3000)
                 })
                 .catch((error) => {
                     const errorMessage = error.message;

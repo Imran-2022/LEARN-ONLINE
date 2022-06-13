@@ -3,7 +3,7 @@ import { FaTimes, FaBars } from 'react-icons/fa';
 import { HiMenuAlt3 } from "react-icons/hi";
 
 import {
-    Link
+    Link, NavLink
 } from "react-router-dom";
 import "./Navbar.css"
 import { FaFacebookSquare, FaLinkedin, FaGithubSquare, FaYoutubeSquare } from "react-icons/fa";
@@ -59,11 +59,11 @@ const Navigation = ({ cartUpdate }) => {
                     <div className="nav-links" id="nav-links">
                         <h5 className="menuright" onClick={hide_menu}><FaTimes /></h5>
                         <ul onClick={hide_menu}>
-                            <li><Link to="/">HOME</Link></li>
-                            <li><Link to="/courses">COURSES</Link></li>
-                            <li><Link to="/blogs">BLOGS</Link></li>
-                            <li><Link to="/about">ABOUT</Link></li>
-                            <li><Link to="/contact">CONTACT</Link></li>
+                            <li><NavLink to="/home">HOME</NavLink></li>
+                            <li><NavLink to="/courses">COURSES</NavLink></li>
+                            <li><NavLink to="/blogs">BLOGS</NavLink></li>
+                            <li><NavLink to="/about">ABOUT</NavLink></li>
+                            <li><NavLink to="/contact">CONTACT</NavLink></li>
                             {
                                 (JSON.parse(localStorage.getItem('authUser'))?.email || loggedInUser.email) && <li ><Link className="bg-danger p-2 rounded" to="/user">
                                     {loggedInUser.displayName||JSON.parse(localStorage.getItem('authUser'))?.displayName || "USER-PROFILE"}

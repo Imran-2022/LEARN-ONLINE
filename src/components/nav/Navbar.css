@@ -199,3 +199,7 @@ ul {
   }
 
 }
+.active{
+  color: rgb(1, 0, 0) !important;
+  font-weight: 900;
+}
