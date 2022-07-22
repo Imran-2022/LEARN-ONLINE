@@ -11,7 +11,7 @@ import { userContext } from '../Context/Context';
 const Navigation = ({ cartUpdate }) => {
 
     const [loggedInUser, setLoggedInUser] = useContext(userContext)
-    const [admin, setAdmin] = useState();
+    const [admin, setAdmin] = useState([]);
     const show_menu = () => {
         document.getElementById("nav-links").style.left = "0";
     }
@@ -68,7 +68,7 @@ const Navigation = ({ cartUpdate }) => {
                                 (JSON.parse(localStorage.getItem('authUser'))?.email || loggedInUser.email) && <li ><Link className="bg-danger p-2 rounded" to="/user">
                                     {loggedInUser.displayName||JSON.parse(localStorage.getItem('authUser'))?.displayName || "USER-PROFILE"}
                                 </Link>
-                                {/* <span className="cartNumber p-0 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span> */}
+                                <span className="cartNumber p-0 rounded bg-dark d-flex justify-content-center align-items-center">{cartUpdate}</span>
                                 </li>
                             }
                             {
